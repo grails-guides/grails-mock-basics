@@ -1,10 +1,8 @@
 package grails.mock.basics
 
-import grails.transaction.Transactional
-
 class ClassroomService {
 
-    EmailService emailService
+    def emailService
 
     List<Student> findStudentsWithGradeAbove(BigDecimal grade) {
         List<Student> students = Student.findAllByGradeGreaterThanEquals(grade)
@@ -19,11 +17,13 @@ class ClassroomService {
         avgGrade
     }
 
-    void emailStudents(Classroom classroom) {
+    int emailStudents(Classroom classroom) {
         List<Student> students = classroom.students as List<Student>
+        int emailCount = 0
         for (student in students) {
-            emailService.sendEmail(to: "${student.name}", from: "${classroom.teacher}",
+            emailCount += emailService.sendEmail(to: "${student.name}", from: "${classroom.teacher}",
                     note: "Your grade is ${student.grade}")
         }
+        emailCount
     }
 }

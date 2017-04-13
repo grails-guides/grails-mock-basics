@@ -2,6 +2,7 @@ package grails.mock.basics
 
 import grails.test.mixin.Mock
 import grails.test.mixin.TestFor
+import org.hibernate.validator.constraints.Email
 import spock.lang.Specification
 
 @TestFor(ClassroomService)
@@ -40,18 +41,72 @@ class ClassroomServiceSpec extends Specification {
         avgGrade == 93
     }
 
+    void "test email students with mock collaborator"() {
+        given: "students are part of a classroom"
+        Classroom classroom = mockStudentsInAClassroom()
+        def mockEmailService = Mock(EmailService)
+        service.emailService = mockEmailService
+
+
+        when: "service is called to email students"
+        int emailCount = service.emailStudents(classroom)
+
+        then:
+        1 * mockEmailService.sendEmail([to:"Sergio", from:"Smith", note:"Your grade is 95"]) >> 1
+        1 * mockEmailService.sendEmail([to:"Nirav", from:"Smith", note:"Your grade is 91"]) >> 1
+        1 * mockEmailService.sendEmail([to:"Jeff", from:"Smith", note:"Your grade is 93"]) >> 1
+        emailCount == 3
+    }
+
+    void "test email students with expando"() {
+        given: "students are part of a classroom"
+        Classroom classroom = mockStudentsInAClassroom()
+        def mockEmailService = new Expando()
+        mockEmailService.sendEmail = { Map message ->
+            return 1
+        }
+        service.emailService = mockEmailService
+
+
+        when: "service is called to email students"
+        int emailCount = service.emailStudents(classroom)
+
+        then:
+        emailCount == 3
+    }
+
+    void "test email students with metaclass override"() {
+        given: "students are part of a classroom"
+        Classroom classroom = mockStudentsInAClassroom()
+        EmailService mockEmailService = new EmailService()
+        mockEmailService.metaClass.sendEmail = { Map message ->
+            return 1
+        }
+        service.emailService = mockEmailService
+
+
+        when: "service is called to email students"
+        int emailCount = service.emailStudents(classroom)
+
+        then:
+        emailCount == 3
+    }
+
+    /***********************************************************************************/
+
     void mockStudentsOnly() {
         for (s in studentsInfo) {
             new Student(name: s.name, grade: s.grade).save()
         }
     }
 
-    void mockStudentsInAClassroom() {
+    Classroom mockStudentsInAClassroom() {
         Classroom classroom = new Classroom(teacher: "Smith")
         for (s in studentsInfo) {
             classroom.addToStudents(new Student(name: s.name, grade: s.grade))
         }
         classroom.save()
+        classroom
     }
 
 
