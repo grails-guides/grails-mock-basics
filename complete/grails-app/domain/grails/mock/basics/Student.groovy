@@ -4,7 +4,4 @@ class Student {
 
     String name
     BigDecimal grade
-
-    static constraints = {
-    }
 }

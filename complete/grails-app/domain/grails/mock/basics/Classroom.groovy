@@ -4,7 +4,4 @@ class Classroom {
 
     String teacher
     static hasMany = [students: Student]
-
-    static constraints = {
-    }
 }

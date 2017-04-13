@@ -1,10 +1,7 @@
 package grails.mock.basics
 
-import com.fasterxml.jackson.databind.BeanProperty
 import grails.transaction.Transactional
-import org.hibernate.validator.constraints.Email
 
-@Transactional
 class ClassroomService {
 
     EmailService emailService
