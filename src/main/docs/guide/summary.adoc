@@ -1,0 +1,5 @@
+To summarize this guide..
+
+- Mocking the domain can be done with the runtime GORM API. Use @Mock with a list of Domain classes.
+- Mocking Services can be done with the spock Mock() method. It abides by leniant mock principles, and comes with an array of verification features.
+- Other mocking approaches are available with native groovy - Expando() and metaClass replace.

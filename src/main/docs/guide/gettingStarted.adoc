@@ -1,1 +1,4 @@
 In this guide you are going to...
+
+- Create a small application based on a Classroom and Students. A service will perform basic functions like finding students, calculating average grades, and simulate sending email.
+- Create unit test spock specification tests that use Domain mocking and Service mocking.

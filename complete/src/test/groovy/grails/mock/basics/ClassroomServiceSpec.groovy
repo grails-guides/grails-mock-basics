@@ -75,7 +75,7 @@ class ClassroomServiceSpec extends Specification {
         emailCount == 3
     }
 
-    void "test email students with metaclass override"() {
+    void "test email students with metaclass replace"() {
         given: "students are part of a classroom"
         Classroom classroom = mockStudentsInAClassroom()
         EmailService mockEmailService = new EmailService()
