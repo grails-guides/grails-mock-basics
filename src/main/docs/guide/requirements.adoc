@@ -1,1 +1,3 @@
 include::{commondir}/common-requirements.adoc[]
+
+- This application was developed on Windows 10

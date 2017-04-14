@@ -1,1 +1,21 @@
-TODO:
+The application should have some functionality. This will allow us to excercise Unit Tests with mocks. Note that this functionality will not be enabled from the UI. We will only invoke them from the Unit Tests for the purpose of this guide.
+
+We will focus on three simple areas of functionality:
+
+- Search for `Students` with a grade above a number.
+- Calculate the average grade for a `Classroom`.
+- Email `Students` in a `Classroom`.
+
+[source, groovy]
+.grails-app/services/grails/mock/basics/ClassroomService.groovy
+----
+include::{sourceDir}/grails-app/services/grails/mock/basics/ClassroomService.groovy[indent=0]
+----
+
+The `Classroom` service uses `EmailService` through Dependecy Injection.
+
+[source, groovy]
+.grails-app/services/grails/mock/basics/EmailService.groovy
+----
+include::{sourceDir}/grails-app/services/grails/mock/basics/EmailService.groovy[indent=0]
+----
