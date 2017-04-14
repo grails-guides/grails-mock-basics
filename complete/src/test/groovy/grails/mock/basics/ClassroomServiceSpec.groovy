@@ -50,28 +50,32 @@ class ClassroomServiceSpec extends Specification {
 
     //end::testCalc[]
 
+    //tag::testEmailMock[]
     void "test email students with mock collaborator"() {
         given: "students are part of a classroom"
         Classroom classroom = mockStudentsInAClassroom()
-        def mockEmailService = Mock(EmailService)
-        service.emailService = mockEmailService
+        def mockEmailService = Mock(EmailService) // <1>
+        service.emailService = mockEmailService // <2>
 
 
         when: "service is called to email students"
-        int emailCount = service.emailStudents(classroom)
+        int emailCount = service.emailStudents(classroom) // <3>
 
         then:
-        1 * mockEmailService.sendEmail([to:"Sergio", from:"Smith", note:"Your grade is 95"]) >> 1
+        1 * mockEmailService.sendEmail([to:"Sergio", from:"Smith", note:"Your grade is 95"]) >> 1 // <4>
         1 * mockEmailService.sendEmail([to:"Nirav", from:"Smith", note:"Your grade is 91"]) >> 1
         1 * mockEmailService.sendEmail([to:"Jeff", from:"Smith", note:"Your grade is 93"]) >> 1
         emailCount == 3
     }
 
+    //end::testEmailMock[]
+
+    //tag::testEmailExpando[]
     void "test email students with expando"() {
         given: "students are part of a classroom"
         Classroom classroom = mockStudentsInAClassroom()
-        def mockEmailService = new Expando()
-        mockEmailService.sendEmail = { Map message ->
+        def mockEmailService = new Expando() // <1>
+        mockEmailService.sendEmail = { Map message -> // <2>
             return 1
         }
         service.emailService = mockEmailService
@@ -84,22 +88,7 @@ class ClassroomServiceSpec extends Specification {
         emailCount == 3
     }
 
-    void "test email students with metaclass replace"() {
-        given: "students are part of a classroom"
-        Classroom classroom = mockStudentsInAClassroom()
-        EmailService mockEmailService = new EmailService()
-        mockEmailService.metaClass.sendEmail = { Map message ->
-            return 1
-        }
-        service.emailService = mockEmailService
-
-
-        when: "service is called to email students"
-        int emailCount = service.emailStudents(classroom)
-
-        then:
-        emailCount == 3
-    }
+    //end::testEmailExpando[]
 
     /***********************************************************************************/
 

@@ -15,5 +15,5 @@ Execute the test command to view the test results.
 grails test-app
 ----
 
-<1> Classroom is saved with several Students.
+<1> `Classroom` is saved with several `Students`.
 <2> Invoke the method under test, which will use the saved Domain objects.

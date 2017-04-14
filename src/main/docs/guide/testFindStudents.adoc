@@ -35,7 +35,7 @@ Execute the test command to view the test results.
 grails test-app
 ----
 
-<1> Information used to populate Students.
-<2> Save Students using the GORM API.
+<1> Data used to populate `Students`.
+<2> Save `Students` using the GORM API.
 <3> Execution of method will find the objects stored in the in-memory GORM database.
 
