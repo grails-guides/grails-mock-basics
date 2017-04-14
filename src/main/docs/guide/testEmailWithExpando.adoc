@@ -1,4 +1,4 @@
-Another approach to mocking is with Groovy's Expando() class. Expando() is a map implementation which give the ability to create a mock object with a simple closure. There are no built in verifications, but it allows a simply way to mock out a dependency so you can focus what is under test.
+Another approach to mocking is with Groovy's Expando() class. Expando() is a map implementation which gives the ability to create a mock object with a simple closure. There are no built in verifications, but it allows a simply way to mock out a dependency so you can focus what is under test.
 
 [source, groovy]
 .src/test/groovy/grails/mock/basics/ClassroomServiceSpec.groovy

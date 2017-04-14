@@ -6,6 +6,13 @@ We will focus on three simple areas of functionality:
 - Calculate the average grade for a `Classroom`.
 - Email `Students` in a `Classroom`.
 
+Create the ClassroomService
+
+[source, bash]
+----
+> grails create-service Classroom
+----
+
 [source, groovy]
 .grails-app/services/grails/mock/basics/ClassroomService.groovy
 ----
@@ -14,8 +21,17 @@ include::{sourceDir}/grails-app/services/grails/mock/basics/ClassroomService.gro
 
 The `Classroom` service uses `EmailService` through Dependecy Injection.
 
+Create the EmailService
+
+[source, bash]
+----
+> grails create-service Email
+----
+
 [source, groovy]
 .grails-app/services/grails/mock/basics/EmailService.groovy
 ----
 include::{sourceDir}/grails-app/services/grails/mock/basics/EmailService.groovy[indent=0]
 ----
+
+NOTE: Before proceeding, go to `src/test/groovy/grails/mock/basics/` and delete every test except `ClassroomServiceSpec.groovy`. We only need one test to focus on.
