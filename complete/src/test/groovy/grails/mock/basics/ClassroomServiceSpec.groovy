@@ -9,18 +9,22 @@ import spock.lang.Specification
 @Mock([Student, Classroom])
 class ClassroomServiceSpec extends Specification {
 
-    static def studentsInfo = [
+    //tag::studentsInfo[]
+    static def studentsInfo = [ // <1>
             [name: "Nirav", grade: 91],
             [name: "Sergio", grade: 95],
             [name: "Jeff", grade: 93]
     ]
 
+    //end::studentsInfo[]
+
+    //tag::testFind[]
     void "test find students with grades above"() {
         given: "students are already stored in db"
         mockStudentsOnly()
 
         when: "service is called to search"
-        List<Student> students = service.findStudentsWithGradeAbove(92)
+        List<Student> students = service.findStudentsWithGradeAbove(92) // <3>
 
         then: "students are found with appropriate grades"
         students.size() == 2
@@ -30,16 +34,21 @@ class ClassroomServiceSpec extends Specification {
         students[1].grade == 93
     }
 
+    //end::testFind[]
+
+    //tag::testCalc[]
     void "test calculate average grade of classroom"() {
         given: "students are part of a classroom"
         mockStudentsInAClassroom()
 
         when: "service is called to calculate an average"
-        BigDecimal avgGrade = service.calculateAvgGrade("Smith")
+        BigDecimal avgGrade = service.calculateAvgGrade("Smith")// <2>
 
         then: "the average grade is calculated"
         avgGrade == 93
     }
+
+    //end::testCalc[]
 
     void "test email students with mock collaborator"() {
         given: "students are part of a classroom"
@@ -94,20 +103,26 @@ class ClassroomServiceSpec extends Specification {
 
     /***********************************************************************************/
 
+    //tag::mockStudentsOnly[]
     void mockStudentsOnly() {
         for (s in studentsInfo) {
-            new Student(name: s.name, grade: s.grade).save()
+            new Student(name: s.name, grade: s.grade).save()// <2>
         }
     }
 
+    //end::mockStudentsOnly[]
+
+    //tag::mockStudentsInAClassroom[]
     Classroom mockStudentsInAClassroom() {
         Classroom classroom = new Classroom(teacher: "Smith")
         for (s in studentsInfo) {
             classroom.addToStudents(new Student(name: s.name, grade: s.grade))
         }
-        classroom.save()
+        classroom.save() // <1>
         classroom
     }
+
+    //end::mockStudentsInAClassroom[]
 
 
 }

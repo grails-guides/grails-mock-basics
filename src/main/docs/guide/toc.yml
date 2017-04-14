@@ -11,7 +11,6 @@ writingTheApp:
   testCalcAvgGrade: Test Calculate Average Grade By Mocking Domain
   testEmailWithMock: Test Email with Mock Collaborators
   testEmailWithExpando: Test Email with Expando
-  testEmailWithMetaClassReplace: Test Email with MetaClass Replace
 summary:
   title: Summary
 runningTheApp:
