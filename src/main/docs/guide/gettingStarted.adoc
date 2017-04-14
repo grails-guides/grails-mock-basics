@@ -1,4 +1,10 @@
 In this guide you are going to...
 
 - Create a small application based on a Classroom and Students. A service will perform basic functions like finding students, calculating average grades, and simulate sending email.
-- Create unit test spock specification tests that use Domain mocking and Service mocking.
+- Create unit test spock specification tests that uses Domain and Service mocking.
+
+Use the below documentation for supplemental information purposes:
+
+- http://docs.grails.org/latest/guide/testing.html#unitTesting[Grails Unit Testing]
+- http://spockframework.org/spock/docs/1.0/interaction_based_testing.html[Spock Interaction Based Testing]
+
