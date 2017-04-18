@@ -1,5 +1,6 @@
-To summarize this guide..
+To summarize this guide:
 
-- Mocking the domain can be done with the runtime GORM API. Use @Mock with a list of Domain classes.
-- Mocking Services can be done with the spock Mock() method. It abides by leniant mock principles, and comes with an array of verification features.
-- Expando() is a plain mocking approach available with native groovy.
+- To unit test Service's methods with GORM code, use `HibernateSpec`
+- To create an integration tests for a service, inject the service with `@Autowired`
+-  Mocking Services can be done with the Spock `Mock()` method. It abides by lenient mock principles, and comes with an array of verification features.
+-  `Expando()` is a plain mocking approach available offered by Groovy.
