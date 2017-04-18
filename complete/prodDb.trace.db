@@ -1,0 +1,12 @@
+2017-04-18 07:43:55 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENT" not found; SQL statement:
+insert into student (id, version, grade, name) values (null, ?, ?, ?) [42102-193]
+2017-04-18 07:43:55 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENT" not found; SQL statement:
+insert into student (id, version, grade, name) values (null, ?, ?, ?) [42102-193]
+2017-04-18 07:56:43 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLException: Table "CLASSROOM" not found; SQL statement:
+insert into classroom (id, version, teacher) values (null, ?, ?) [42102-193]
+2017-04-18 07:56:43 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLException: Table "CLASSROOM" not found; SQL statement:
+insert into classroom (id, version, teacher) values (null, ?, ?) [42102-193]

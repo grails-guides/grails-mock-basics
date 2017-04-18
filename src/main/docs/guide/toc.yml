@@ -1,14 +1,16 @@
-gettingStarted: 
+gettingStarted:
   title: Getting Started
   requirements: What you will need
   howto: How to complete the guide
 writingTheApp:
   title: Writing the Application
   domainClasses: Domain Classes
-  controllers: Controllers
-  classroomService: Classroom Service
-  testFindStudents: Test Find Students By Mocking Domain
-  testCalcAvgGrade: Test Calculate Average Grade By Mocking Domain
+  gormHibernate: Gorm Hibernate
+  dynamicFinderService: DynamicFinder Service
+  dynamicFinderServiceTests: HibernateSpec
+  gormService: Projection Query
+  integrationTests: Service Integration tests
+  serviceWithCollaborators: Service with Collaborators
   testEmailWithMock: Test Email with Mock Collaborators
   testEmailWithExpando: Test Email with Expando
 summary:

@@ -1,3 +1,3 @@
-We are going to write a simple application involving a `Classroom` and a `Student` domain class. A `ClassroomService` will be responsible for some basic functionality.
+We are going to write a simple application involving a `Classroom` and a `Student` domain class.
 
-We will demonstrate how to test the functionality in unit tests using mocks for Domain classes and mocks for Services.
+Several services will interact with those domain classes. We will use those services to discuss several testing topics. 
