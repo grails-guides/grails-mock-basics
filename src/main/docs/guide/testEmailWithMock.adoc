@@ -1,4 +1,4 @@
-The Spock framework gives the ability to mock collaborators. We are able to substitute dependencies within a service with a mock implementation. This gives the advantage of focusing on the functionality under test, while delegating the dependent functionality to a mock object. In addition, mock collaborators can be verified see how many times they are called and which parameters they are being sent.
+The Spock framework gives the ability to mock collaborators. We are able to substitute dependencies within a service with a mock implementation. This gives the advantage of focusing on the functionality under test, while delegating the dependent functionality to a mock object. In addition, mock collaborators can be verified to see how many times they are called and which parameters are being sent.
 
 Implement the code to test email with a mock collaborator. Essentially, we want to verify the email service is called for each `Student` in a `Classroom`.
 
