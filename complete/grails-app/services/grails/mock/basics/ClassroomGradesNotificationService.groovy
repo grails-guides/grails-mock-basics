@@ -11,7 +11,7 @@ class ClassroomGradesNotificationService {
     @CompileDynamic
     int emailClassroomStudents(Classroom classroom) {
         int emailCount = 0
-        for ( student in classroom.students ) {
+        for ( Student student in classroom.students ) {
             def email = emailFromTeacherToStudent(classroom.teacher, student)
             emailCount += emailService.sendEmail(email)
         }
