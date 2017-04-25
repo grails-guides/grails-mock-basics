@@ -7,11 +7,7 @@ import grails.test.mixin.TestFor
 class StudentServiceSpec extends HibernateSpec {
 
     List<Class> getDomainClasses() { [Student] } // <1>
-
-    def setup() {
-        service.transactionManager = transactionManager // <2>
-    }
-
+    
     def "test find students with grades above"() {
         when: "students are already stored in db"
         Student.saveAll(
