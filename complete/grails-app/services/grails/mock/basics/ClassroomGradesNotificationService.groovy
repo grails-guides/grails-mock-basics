@@ -1,6 +1,5 @@
 package grails.mock.basics
 
-import groovy.transform.CompileDynamic
 import groovy.transform.CompileStatic
 
 @CompileStatic
