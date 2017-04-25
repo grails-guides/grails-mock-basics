@@ -1,7 +1,7 @@
 package grails.mock.basics
 
 import grails.compiler.GrailsCompileStatic
-import grails.transaction.Transactional
+import grails.gorm.transactions.Transactional
 
 @GrailsCompileStatic
 @Transactional(readOnly = true)
