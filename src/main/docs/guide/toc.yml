@@ -12,7 +12,6 @@ writingTheApp:
   integrationTests: Service Integration tests
   serviceWithCollaborators: Service with Collaborators
   testEmailWithMock: Test Email with Mock Collaborators
-  testEmailWithExpando: Test Email with Expando
 summary:
   title: Summary
 runningTheApp:

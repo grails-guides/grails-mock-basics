@@ -51,24 +51,6 @@ class ClassroomGradesNotificationServiceSpec extends Specification {
     }
     // end::testEmailMock[]
 
-    // tag::testEmailExpando[]
-    void "test email students with expando"() {
-        given: "students are part of a classroom"
-        def mockService = new Expando() // <2>
-        mockService.sendEmail = { Map message -> // <3>
-            return 1
-        }
-        service.emailService = mockService
-
-
-        when: "service is called to email students"
-        int emailCount = service.emailClassroomStudents(classroom)
-
-        then:
-        emailCount == 3
-    }
-    // end::testEmailExpando[]
-
 // tag::ClassroomGradesNotificationServiceCloseBrace[]
 }
 // end::ClassroomGradesNotificationServiceCloseBrace[]
