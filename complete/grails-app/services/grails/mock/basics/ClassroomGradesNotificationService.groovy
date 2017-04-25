@@ -6,9 +6,8 @@ import groovy.transform.CompileStatic
 @CompileStatic
 class ClassroomGradesNotificationService {
 
-    def emailService
+    EmailService emailService
 
-    @CompileDynamic
     int emailClassroomStudents(Classroom classroom) {
         int emailCount = 0
         for ( Student student in classroom.students ) {
