@@ -8,7 +8,7 @@ import groovy.util.logging.Slf4j
 class EmailService {
 
     int sendEmail(Map message) {
-        log.info 'Send email: {0}', message
+        log.info "Send email: ${message}"
         1
     }
 }

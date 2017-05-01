@@ -20,7 +20,7 @@ class ClassroomGradesNotificationService {
         [
                 to: "${student.name}",
                 from: "${teacher}",
-                note: "Grade is ${student.grade}"
+                note: "Grade is ${student.grade}",
         ]
     }
 }
