@@ -45,7 +45,7 @@ class ClassroomGradesNotificationServiceSpec extends Specification {
         int emailCount = service.emailClassroomStudents(classroom) // <4>
 
         then:
-        1 * mockService.sendEmail([to: 'Sergio', from: 'Smith', note: 'Grade is 95']) >> 1 // <4>
+        1 * mockService.sendEmail([to: 'Sergio', from: 'Smith', note: 'Grade is 95']) >> 1 // <5>
         1 * mockService.sendEmail([to: 'Nirav', from: 'Smith', note: 'Grade is 91']) >> 1
         1 * mockService.sendEmail([to: 'Jeff', from: 'Smith', note: 'Grade is 93']) >> 1
         emailCount == 3
