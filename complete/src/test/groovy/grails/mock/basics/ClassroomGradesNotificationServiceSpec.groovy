@@ -4,18 +4,16 @@ package grails.mock.basics
 // end::ClassroomGradesNotificationServiceSpecPackageImport[]
 
 // tag::ClassroomGradesNotificationServiceSpecImport[]
-import grails.test.mixin.TestFor
+import grails.testing.gorm.DataTest
+import grails.testing.services.ServiceUnitTest
 import spock.lang.Shared
-import grails.test.mixin.Mock
 import spock.lang.Specification
 
 // end::ClassroomGradesNotificationServiceSpecImport[]
 
 // tag::ClassroomGradesNotificationServiceSpecClassDeclaration[]
 @SuppressWarnings('MethodName')
-@TestFor(ClassroomGradesNotificationService)
-@Mock([Student, Classroom]) // <1>
-class ClassroomGradesNotificationServiceSpec extends Specification {
+class ClassroomGradesNotificationServiceSpec extends Specification implements DataTest, ServiceUnitTest<ClassroomGradesNotificationService> {
 // end::ClassroomGradesNotificationServiceSpecClassDeclaration[]
 
     // tag::ClassroomGradesNotificationServiceSpecShared[]
@@ -23,6 +21,11 @@ class ClassroomGradesNotificationServiceSpec extends Specification {
     // end::ClassroomGradesNotificationServiceSpecShared[]
 
     // tag::ClassroomGradesNotificationServiceSpecSetup[]
+    def setupSpec() { // <1>
+        mockDomain Student
+        mockDomain Classroom
+    }
+
     def setup() {
         classroom = new Classroom(teacher: 'Smith')
         [

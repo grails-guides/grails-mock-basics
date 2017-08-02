@@ -1,11 +1,10 @@
 package grails.mock.basics
 
 import grails.test.hibernate.HibernateSpec
-import grails.test.mixin.TestFor
+import grails.testing.services.ServiceUnitTest
 
 @SuppressWarnings('MethodName')
-@TestFor(ClassroomService)
-class ClassroomServiceSpec extends HibernateSpec {
+class ClassroomServiceSpec extends HibernateSpec implements ServiceUnitTest<ClassroomService> {
 
     List<Class> getDomainClasses() { [Student, Classroom] }
 

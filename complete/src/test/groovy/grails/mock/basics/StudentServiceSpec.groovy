@@ -1,11 +1,10 @@
 package grails.mock.basics
 
 import grails.test.hibernate.HibernateSpec
-import grails.test.mixin.TestFor
+import grails.testing.services.ServiceUnitTest
 
 @SuppressWarnings(['MethodName', 'DuplicateNumberLiteral'])
-@TestFor(StudentService)
-class StudentServiceSpec extends HibernateSpec {
+class StudentServiceSpec extends HibernateSpec implements ServiceUnitTest<StudentService> {
 
     List<Class> getDomainClasses() { [Student] } // <1>
     def 'test find students with grades above'() {
