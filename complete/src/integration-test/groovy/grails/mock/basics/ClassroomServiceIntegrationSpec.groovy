@@ -1,6 +1,6 @@
 package grails.mock.basics
 
-import grails.test.mixin.integration.Integration
+import grails.testing.mixin.integration.Integration
 import grails.transaction.Rollback
 import org.springframework.beans.factory.annotation.Autowired
 import spock.lang.Specification
@@ -10,8 +10,7 @@ import spock.lang.Specification
 @Integration
 class ClassroomServiceIntegrationSpec extends Specification {
 
-    @Autowired
-    ClassroomService service
+    @Autowired ClassroomService service
 
     void 'test calculate average grade of classroom'() {
         when:
