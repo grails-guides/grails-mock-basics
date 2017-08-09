@@ -13,7 +13,8 @@ import spock.lang.Specification
 
 // tag::ClassroomGradesNotificationServiceSpecClassDeclaration[]
 @SuppressWarnings('MethodName')
-class ClassroomGradesNotificationServiceSpec extends Specification implements DataTest, ServiceUnitTest<ClassroomGradesNotificationService> {
+class ClassroomGradesNotificationServiceSpec extends Specification
+        implements DataTest, ServiceUnitTest<ClassroomGradesNotificationService> {
 // end::ClassroomGradesNotificationServiceSpecClassDeclaration[]
 
     // tag::ClassroomGradesNotificationServiceSpecShared[]
