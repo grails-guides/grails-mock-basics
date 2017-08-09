@@ -14,4 +14,3 @@ include::{sourceDir}/build.gradle[indent=0]
 ----
 
 <1> For this guide we are using GORM Hibernate implementation
-<2> Include the `grails-datastore-gorm-test` dependency to test GORM
