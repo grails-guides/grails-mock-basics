@@ -1,6 +1,6 @@
 package grails.mock.basics
 
-import grails.transaction.Transactional
+import grails.gorm.transactions.Transactional
 import groovy.transform.CompileStatic
 
 @CompileStatic
