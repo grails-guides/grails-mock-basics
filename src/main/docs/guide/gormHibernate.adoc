@@ -10,7 +10,20 @@ include::{sourceDir}/gradle.properties[indent=0]
 [source, groovy]
 .build.gradle
 ----
-include::{sourceDir}/build.gradle[indent=0]
+buildscript {
+...
+    dependencies {
+        ...
+include::{sourceDir}/build.gradle[tag=gradlepluginhibernate]
+    }
+}
+
+...
+dependencies {
+...
+include::{sourceDir}/build.gradle[tag=dependencieshibernate]
+    }
+}
 ----
 
 <1> For this guide we are using GORM Hibernate implementation
