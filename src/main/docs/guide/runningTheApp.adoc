@@ -13,3 +13,10 @@ or
 ----
 ./gradlew test
 ----
+
+To run the integration tests
+
+[source, bash]
+----
+./gradlew integrationTest
+----
