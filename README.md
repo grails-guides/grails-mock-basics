@@ -1,7 +1,11 @@
-# Grails Guide - Grails Mock Basics
+# Grails Service Testing
 
-This example application demonstrates how to mock Grails Domain classes and Services. 
+This repository contains the worked sample app for the [Grails Service Testing](https://grails.apache.org/guides/grails-mock-basics/4/guide/index.html) guide on the Apache Grails site.
 
-The completed example source code can be find in the `complete` directory.
+## Run the example
 
-The published guide can be found on the [Grails Guides website](http://guides.grails.org/grails-mock-basics/guide/index.html)
+`./gradlew bootRun`
+
+## Maintained at apache/grails-static-website
+
+The guide narrative is maintained at https://github.com/apache/grails-static-website. Changes to the guide content go there; this repo holds the worked sample app only.
