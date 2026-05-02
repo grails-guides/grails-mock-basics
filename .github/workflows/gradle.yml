@@ -12,14 +12,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: java
+        name: Pick Java version from Gradle wrapper major
         shell: bash
         run: |
-          BRANCH="${{ github.event_name == 'pull_request' && github.base_ref || github.ref_name }}"
-          case "$BRANCH" in
-            grails6) echo "version=17" >> "$GITHUB_OUTPUT" ;;
-            grails3|grails4|grails5) echo "version=11" >> "$GITHUB_OUTPUT" ;;
-            *) echo "Unsupported branch: $BRANCH"; exit 1 ;;
-          esac
+          GRADLE_VER=$(grep -oE 'gradle-[0-9]+(\.[0-9]+)*' gradle/wrapper/gradle-wrapper.properties | head -1 | sed 's/gradle-//')
+          GRADLE_MAJOR=$(echo "$GRADLE_VER" | cut -d. -f1)
+          if [ -z "$GRADLE_MAJOR" ] || [ "$GRADLE_MAJOR" -le 4 ]; then
+            JAVA=8
+          elif [ "$GRADLE_MAJOR" -le 6 ]; then
+            JAVA=11
+          else
+            JAVA=17
+          fi
+          echo "Detected Gradle $GRADLE_VER (major=$GRADLE_MAJOR), using Java $JAVA"
+          echo "version=$JAVA" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
